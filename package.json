@@ -1,0 +1,59 @@
+{
+  "name": "nortada-ecommerce-clone-backend",
+  "version": "1.0.0",
+  "description": "Backend for a Beer factory's ecommerce ",
+  "main": "index.js",
+  "scripts": {
+    "test": "NODE_ENV=test jest",
+    "start": "node dist/index.js",
+    "dev": "nodemon src/server.js --ignore tests",
+    "commit": "git-cz"
+  },
+  "author": "Gabriel Afonso",
+  "license": "ISC",
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "cross-env CI=true npm test --findRelatedTests",
+      "git add"
+    ]
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.4",
+    "stripe": "^8.67.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^9.0.1",
+    "@commitlint/config-conventional": "^9.0.1",
+    "@typescript-eslint/parser": "^3.4.0",
+    "commitizen": "^4.1.2",
+    "cross-env": "^7.0.2",
+    "cz-conventional-changelog": "^3.2.0",
+    "eslint": "^7.3.1",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.21.2",
+    "eslint-plugin-import-helpers": "^1.0.2",
+    "eslint-plugin-jest": "^23.17.1",
+    "eslint-plugin-prettier": "^3.1.4",
+    "husky": "^4.2.5",
+    "jest": "^26.1.0",
+    "lint-staged": "^10.2.11",
+    "prettier-eslint": "^11.0.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
