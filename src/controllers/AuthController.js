@@ -1,6 +1,5 @@
 const routes = require('express').Router();
 
-// const stripe = require('stripe')(process.env.API_KEY);
 const stripe = require('stripe')(process.env.API_KEY);
 
 // app.get('/secret', async (req, res) => {
@@ -22,7 +21,6 @@ routes.post('/payment', async (request, response) => {
     });
 
     response.status(200).json(paymentIntent);
-    // response.status(200).send('Rota funcionando');
   } catch (err) {
     response.status(400).json({ error: err });
   }

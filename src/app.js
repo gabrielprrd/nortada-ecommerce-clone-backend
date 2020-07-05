@@ -6,7 +6,7 @@ const app = express();
 
 // Enviroment variables configuration
 require('dotenv').config({
-  path: process.env.NODE_ENV === 'test' ? path.resolve(__dirname, '..', '.env.test') : path.resolve(__dirname, '..', '.env'),
+  path: process.env.NODE_ENV === 'test' ? path.resolve(__dirname, '..', '.env.test') : path.resolve(__dirname, '..', '.test'),
 });
 
 // Middlewares
